@@ -10,6 +10,7 @@ public class Account extends Conn{
 	String password;
 	
 	public Account() {
+		
 	}
 	
 	public Account(String id, String password) {

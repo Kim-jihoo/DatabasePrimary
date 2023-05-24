@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		System.out.println("반갑습니다. 이화여대 근방 맛집 조회 서비스입니다.");
+		System.out.println("반갑습니다. 이화여대 근방 맛집 조회 서비스입니다.\n");
 		login();
 		System.out.println("감사합니다. 이화여대 근방 맛집 조회 서비스입니다.");
 		return;
@@ -22,8 +22,7 @@ public class Main {
 		
 		while(loop) {
 			
-			System.out.print("");
-			System.out.println("\n서비스 이용을 위해 로그인 해주세요.");	
+			System.out.println("서비스 이용을 위해 로그인 해주세요.");	
 			System.out.println("1. 로그인 \t 2. 회원가입 \t 3. 종료");
 			System.out.print("번호 선택 : ");
 			code = scanner.nextInt();
@@ -41,21 +40,21 @@ public class Main {
 				int result = account.Login(id, password);
 				
 				if(result == 1) {
-					System.out.println("로그인이 완료되었습니다.");
+					System.out.println("\n로그인이 완료되었습니다.\n");
 					
 					menu(id, password);
 				}
 				
 				else if(result == 0) {
-					System.out.println("비밀번호가 일치하지 않습니다.");
+					System.out.println("\n비밀번호가 일치하지 않습니다.\n");
 				}
 				
 				else if(result == -1) {
-					System.out.println("아이디가 존재하지 않습니다.");
+					System.out.println("\n아이디가 존재하지 않습니다.\n");
 				}
 				
 				else if(result == -2) {
-					System.out.println("오류가 발생하여 로그인에 실패했습니다.");
+					System.out.println("\n오류가 발생하여 로그인에 실패했습니다.\n");
 				}
 				
 			} else if (code == 2) {
@@ -71,22 +70,22 @@ public class Main {
 				int result = account.Create(id, password);
 				
 				if (result == 1) {
-					System.out.println("계정이 생성되었습니다.");
+					System.out.println("\n계정이 생성되었습니다.\n");
 				} else if (result == -1) {
-					System.out.println("이미 아이디가 존재합니다.");
+					System.out.println("\n이미 아이디가 존재합니다.\n");
 				} else {
-					System.out.println("오류가 발생하여 계정 생성에 실패했습니다.");
+					System.out.println("\n오류가 발생하여 계정 생성에 실패했습니다.\n");
 				}				
 				
 			} else if (code == 3) {
 				
-				System.out.println("서비스를 종료합니다.");
+				System.out.println("\n서비스를 종료합니다.\n");
 				loop = false;
 				
 			} else {
 				
 				System.out.println("\n오류가 발생했습니다.");
-				System.out.println("번호를 확인하시고 다시 입력해주세요.");
+				System.out.println("번호를 확인하시고 다시 입력해주세요.\n");
 				
 			}
 		}
@@ -101,7 +100,6 @@ public class Main {
 		while(loop) {
 			
 			try {
-				System.out.print("");
 				System.out.println("메뉴를 선택해주세요.");			
 				System.out.println("1. 리뷰 등록 \t 2. 리뷰 삭제 \t 3. 리뷰 수정 \t 4. 식당 평점 순 조회 \t 5. 평점 이상 식당 추천 \t 6. 가격대 메뉴 추천 \t 7. 로그아웃");
 				System.out.print("번호 선택 : ");
@@ -109,9 +107,9 @@ public class Main {
 			} catch(InputMismatchException e) {
 				System.out.println("\n오류가 발생했습니다.");
 				if (code == 1) {
-					System.out.print("1부터 5 사이 정수를 입력해주세요.");
+					System.out.print("1부터 5 사이 정수를 입력해주세요.\n");
 				} else {
-					System.out.println("번호를 확인하시고 다시 입력해주세요.");
+					System.out.println("번호를 확인하시고 다시 입력해주세요.\n");
 				}
 				
 				break;
@@ -145,15 +143,15 @@ public class Main {
 					int result = review.Create(id, restaurant, menu, rate, comment);
 					
 					if (result == 1) {
-						System.out.println("리뷰가 입력되었습니다.");
+						System.out.println("\n리뷰가 입력되었습니다.\n");
 					} else if (result == -1) {
-						System.out.println("이미 리뷰가 존재합니다.");
+						System.out.println("\n이미 리뷰가 존재합니다.\n");
 					} else {
-						System.out.println("오류가 발생하여 리뷰 입력에 실패했습니다.");
+						System.out.println("\n오류가 발생하여 리뷰 입력에 실패했습니다.\n");
 					}
 					
 				} catch (InputMismatchException e) {
-					System.out.println("\n오류가 발생했습니다.");
+					System.out.println("\n오류가 발생했습니다.\n");
 				}
 
 				
@@ -175,15 +173,15 @@ public class Main {
 					int result = review.Drop(id, restaurant, menu);
 					
 					if (result == 1) {
-						System.out.println("리뷰가 삭제되었습니다.");
+						System.out.println("\n리뷰가 삭제되었습니다.\n");
 					} else if (result == -1) {
-						System.out.println("리뷰가 존재하지 않습니다.");
+						System.out.println("\n리뷰가 존재하지 않습니다.\n");
 					} else {
-						System.out.println("오류가 발생하여 리뷰 삭제에 실패했습니다.");
+						System.out.println("\n오류가 발생하여 리뷰 삭제에 실패했습니다.\n");
 					}
 					
 				} catch (InputMismatchException e) {
-					System.out.println("\n오류가 발생했습니다.");
+					System.out.println("\n오류가 발생했습니다.\n");
 				}
 				
 			} else if (code == 3) {
@@ -210,15 +208,15 @@ public class Main {
 					int result = review.Update(id, restaurant, menu, rate, comment);
 					
 					if (result == 1) {
-						System.out.println("리뷰가 수정되었습니다.");
+						System.out.println("\n리뷰가 수정되었습니다.\n");
 					} else if (result == -1) {
-						System.out.println("리뷰가 존재하지 않습니다.");
+						System.out.println("\n리뷰가 존재하지 않습니다.\n");
 					} else {
-						System.out.println("오류가 발생하여 리뷰 수정에 실패했습니다.");
+						System.out.println("\n오류가 발생하여 리뷰 수정에 실패했습니다.\n");
 					}
 	
 				} catch (InputMismatchException e) {
-					System.out.println("\n오류가 발생했습니다.");
+					System.out.println("\n오류가 발생했습니다.\n");
 				}
 				
 			} else if (code == 4) {
@@ -231,15 +229,15 @@ public class Main {
 
 				
 			} else if (code == 7) {
-				System.out.print("\n로그아웃 되었습니다.");
+				System.out.print("\n로그아웃 되었습니다.\n");
 				loop = false;
 				
 			} else {
-				System.out.println("\n번호를 확인하시고 다시 입력해주세요.");
+				System.out.println("\n번호를 확인하시고 다시 입력해주세요.\n");
 			}
-			
-			System.out.print("\n");
 		}
+		
+		System.out.println("");
 	}
 	
 }

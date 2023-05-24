@@ -17,6 +17,8 @@ public class View extends Conn{
 		
 		Statement stmt = null;
 		
+		System.out.println("\n식당 목록");
+		
 		try {
 			String sql = "select * from restaurant";
 			stmt = conn.createStatement();
@@ -29,6 +31,7 @@ public class View extends Conn{
 				String category = rs.getString("category");
 				System.out.println("name: " + name + " menu: " + menu + " area: " + area + " category: " + category);
 			}
+			System.out.println("");
 			
 		} catch(SQLException e) {
 			System.out.println(e.getMessage());
@@ -39,6 +42,8 @@ public class View extends Conn{
 		JdbcConn();
 		
 		PreparedStatement pstmt = null;
+
+		System.out.println("\n메뉴 목록");
 		
 		try {
 			String sql = "select * from menu where name=?";
@@ -52,6 +57,7 @@ public class View extends Conn{
 				int price = rs.getInt("price");
 				System.out.println("name: " + name + " description: " + description + " price: " + price);
 			}
+			System.out.println("");
 			
 		} catch(SQLException e) {
 			System.out.println(e.getMessage());
@@ -62,6 +68,8 @@ public class View extends Conn{
 		JdbcConn();
 		
 		PreparedStatement pstmt = null;
+
+		System.out.println("\n리뷰 목록");
 		
 		try {
 			String sql = "select * from review where userid=?";
@@ -77,6 +85,7 @@ public class View extends Conn{
 				int price = rs.getInt("price");
 				System.out.println("restaurant: " + restaurant + " menu: " + menu + " rate: " + rate + " comment: " + comment + " price: " + price);
 			}
+			System.out.println("");
 
 		} catch(SQLException e) {
 			System.out.println(e.getMessage());

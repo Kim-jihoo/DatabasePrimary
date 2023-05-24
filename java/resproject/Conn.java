@@ -3,7 +3,6 @@ package resproject;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.PreparedStatement;
 
 public class Conn {
 	
@@ -23,8 +22,6 @@ public class Conn {
 			String upw = "1234";
 			
 			conn = DriverManager.getConnection(url, uid, upw);
-			
-			System.out.println("Connection ¿Ï·á.");
 			
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();
