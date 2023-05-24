@@ -123,13 +123,14 @@ public class Main {
 				
 				try {
 					
-					// 추가 필요
 					// 식당 리스트 보여주기
+					View view = new View();
+					view.Restaurant();
 					System.out.print("입력할 리뷰의 식당 이름을 입력해주세요. : ");
 					String restaurant = scanner.next();
-					
-					// 추가 필요
+
 					// 메뉴 리스트 보여주기
+					view.Menu(restaurant);
 					System.out.print("입력할 리뷰의 메뉴 이름을 입력해주세요. : ");
 					String menu = scanner.next();
 								
@@ -160,8 +161,9 @@ public class Main {
 				
 				try {
 					
-					// 추가 필요
 					// 해당 id의 리뷰 리스트 보여주기
+					View view = new View();
+					view.Review(id);
 					System.out.print("삭제할 리뷰의 식당 이름을 입력해주세요. : ");
 					String restaurant = scanner.next();
 					
@@ -188,8 +190,9 @@ public class Main {
 				
 				try {
 					
-					// 추가 필요
-					// 리뷰 리스트 보여주기
+					// 해당 id의 리뷰 리스트 보여주기
+					View view = new View();
+					view.Review(id);
 					System.out.print("수정할 리뷰의 식당 이름을 입력해주세요. : ");
 					String restaurant = scanner.next();
 					
