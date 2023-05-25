@@ -13,7 +13,7 @@ CREATE TABLE menu (
   id INT PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(255) UNIQUE,
   restaurant VARCHAR(255),
-  price INT
+  price INT,
   FOREIGN KEY (restaurant) REFERENCES restaurant(name)
 );
 
