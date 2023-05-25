@@ -14,6 +14,7 @@ CREATE TABLE menu (
   name VARCHAR(255) UNIQUE,
   restaurant VARCHAR(255),
   price INT
+  FOREIGN KEY (restaurant) REFERENCES restaurant(name)
 );
 
 CREATE TABLE review (
