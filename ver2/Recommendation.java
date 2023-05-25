@@ -13,11 +13,11 @@ public class Recommendation extends Conn {
     	double minRating = scanner.nextDouble();
         try {
             String createViewQuery = "CREATE VIEW restaurant_ratings AS " +
-                    "SELECT r.name, r.area, r.category, AVG(m.rate) AS average_rate " +
+                    "SELECT r.name, r.area, r.category, AVG(s.rate) AS average_rate " +
                     "FROM restaurant r " +
-                    "JOIN menu m ON r.name = m.restaurant " +
+                    "JOIN review s ON r.name = s.restaurant " +
                     "GROUP BY r.name, r.area, r.category " +
-                    "HAVING AVG(m.rate) > ?";
+                    "HAVING AVG(s.rate) > ?";
             PreparedStatement createViewStatement = conn.prepareStatement(createViewQuery);
             createViewStatement.setDouble(1, minRating);
             createViewStatement.executeUpdate();
