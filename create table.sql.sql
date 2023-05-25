@@ -5,7 +5,7 @@ CREATE TABLE users (
 
 CREATE TABLE restaurant (
   name VARCHAR(255) PRIMARY KEY,
-  menu VARCHAR(255),
+  --menu VARCHAR(255),
   area VARCHAR(255),
   category VARCHAR(255)
 );
