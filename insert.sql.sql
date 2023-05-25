@@ -33,26 +33,26 @@ INSERT INTO users (id, pw) VALUES
 ('j123', 'jjj');
 
 INSERT INTO menu (name, restaurant, price) VALUES
-('rice with salmon','donummami','13000')
-('cheese pork cutlet','yuyakedokyo','11000')
-('sindonkocheuramen','ramen 81beonok', '8000')
-('beef pork soba set','yusoba', '15000')
-('a home-style meal','jonjaeui iyu', '7000')
-('einspanner','studio Wup', '5000')
-('samonim pork cutlet', '9500')
-('cheese kimchi soft tofu stew','5500')
-('strawberry tart','35000')
-('aglio e olio','8500')
-('beef tartare with rice' ,'10000')
-('pork lunch box', '6900')
-('school meal', '6500')
-('dimare', '10000')
-('milk tea', '2500')
-('a breakfast of 1,000 won','1000')
-('malenka', '5000')
-('kimchi stew with pork', '7500')
-('maratang', '2000')
-('black-bean-sauce noodles','6000')
+('rice with salmon','donummami','13000'),
+('cheese pork cutlet','yuyakedokyo','11000'),
+('sindonkocheuramen','ramen 81beonok', '8000'),
+('beef pork soba set','yusoba', '15000'),
+('a home-style meal','jonjaeui iyu', '7000'),
+('einspanner','studio Wup', '5000'),
+('samonim pork cutlet','boss donkaz', '9500'),
+('cheese kimchi soft tofu stew','ttalgigol','5500'),
+('strawberry tart','cafe PERA','35000'),
+('aglio e olio','T-ara pasta','8500'),
+('beef tartare with rice' ,'donburimono','10000'),
+('pork lunch box', 'acornstor','6900'),
+('school meal','jinseonmigwan',  '6500'),
+('dimare','hollywood', '10000'),
+('milk tea','gabaedang', '2500'),
+('a breakfast of 1,000 won','ihouse','1000'),
+('malenka','bella phaha',  '5000'),
+('kimchi stew with pork','my del place', '7500'),
+('maratang', 'TAO','2000'),
+('black-bean-sauce noodles','ewhaseong', '6000');
  
 INSERT INTO review (user_id, restaurant, menu, rate, comment) VALUES 
 ('f123', 'donummami', 'rice with salmon', 4.3, 'I like salmon because it is thick'),
@@ -74,5 +74,5 @@ INSERT INTO review (user_id, restaurant, menu, rate, comment) VALUES
 ('h123', 'bella phaha' ,'malenka', 4.2, 'If you eat it with ice cream, it is sweet and delicious'),
 ('j123', 'my del place', 'kimchi stew with pork', 4.9, 'It is good to serve quite a lot of meat and to give you unlimited refills of rice'),
 ('i123', 'TAO', 'maratang', 3.7, 'The hygiene of the store is good and delicious'),
-('b123', 'Ewhaseong', 'black-bean-sauce noodles', 4.5, 'It is cheap and delicious');
+('b123', 'ewhaseong', 'black-bean-sauce noodles', 4.5, 'It is cheap and delicious');
 
