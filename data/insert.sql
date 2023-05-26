@@ -17,7 +17,7 @@ INSERT INTO restaurant (name, area, category) VALUES
 ('ihouse', 'school', 'korean food'),
 ('bella phaha', 'main gate', 'dessert'),
 ('my del place', 'school', 'korean food'),
-('TAO', 'maratang', 'chinese food'),
+('TAO', 'sinchon', 'chinese food'),
 ('ewhaseong', 'main gate', 'chinese food');
 
 
