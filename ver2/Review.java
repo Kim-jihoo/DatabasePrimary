@@ -85,6 +85,42 @@ public class Review extends Conn {
             e.printStackTrace();
         }
     }
+    public void deleteReview(String userId) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.println("삭제할 리뷰의 ID르 입력해주세요 : ");
+    int reviewId = scanner.nextInt();
+    scanner.nextLine();
+
+    try {
+        // Check if the review belongs to the specified user
+        String checkSql = "SELECT * FROM review WHERE id = ? AND user_id = ?";
+        PreparedStatement checkStatement = conn.prepareStatement(checkSql);
+        checkStatement.setInt(1, reviewId);
+        checkStatement.setString(2, userId);
+        ResultSet resultSet = checkStatement.executeQuery();
+
+        if (resultSet.next()) {
+            // Delete the review
+            String deleteSql = "DELETE FROM review WHERE id = ?";
+            PreparedStatement deleteStatement = conn.prepareStatement(deleteSql);
+            deleteStatement.setInt(1, reviewId);
+
+            int rowsAffected = deleteStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("리뷰가 정상적으로 삭제되었습니다.");
+            } else {
+                System.out.println("리뷰 삭제에 실패하였습니다.");
+            }
+        } else {
+            System.out.println("리뷰를 삭제할 수 없습니다.");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
 
     public static void main(String[] args) {
         Review review = new Review();
