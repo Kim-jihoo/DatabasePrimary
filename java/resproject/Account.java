@@ -6,20 +6,11 @@ import java.sql.SQLException;
 
 public class Account extends Conn{
 	
-	String id;
-	String password;
-	
 	public Account() {
-		
-	}
-	
-	public Account(String id, String password) {
-		this.id = id;
-		this.password = password;
-	}
-	
-	public int Create(String id, String password) {
 		JdbcConn();
+	}
+	
+	public int Create(String id, String pw) {
 		
 		PreparedStatement pstmt = null;
 		
@@ -27,7 +18,7 @@ public class Account extends Conn{
 			String sql = "insert into users values (?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
-			pstmt.setString(2, password);
+			pstmt.setString(2, pw);
 			
 			return pstmt.executeUpdate();
 			
@@ -37,20 +28,19 @@ public class Account extends Conn{
 		return -1;
 	}
 	
-	public int Login(String id, String password) {
-		JdbcConn();
+	public int Login(String id, String pw) {
 		
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "select password from users where id = ?";
+			String sql = "select pw from users where id = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			
 			ResultSet result = pstmt.executeQuery();
 			
 			if (result.next()) {
-				if(result.getString(1).equals(password)) {
+				if(result.getString(1).equals(pw)) {
 					return 1;
 				} else {
 					return 0;

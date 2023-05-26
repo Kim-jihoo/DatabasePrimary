@@ -9,27 +9,28 @@ public class View extends Conn{
 	
 	
 	public View() {
-		
+		JdbcConn();
 	}
 	
 	public void Restaurant() {
-		JdbcConn();
 		
 		Statement stmt = null;
 		
 		System.out.println("\n식당 목록");
 		
 		try {
-			String sql = "select * from restaurant";
+			String sql = "SELECT * FROM restaurant";
 			stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			
+			System.out.printf("  %-15s   %-15s   %-15s \n", "name", "area", "category");
+			System.out.printf(" --------------------------------------------------- \n");
+			
 			while(rs.next()) {
 				String name = rs.getString("name");
-				String menu = rs.getString("menu");
 				String area = rs.getString("area");
 				String category = rs.getString("category");
-				System.out.println("name: " + name + " menu: " + menu + " area: " + area + " category: " + category);
+				System.out.printf("  %-15s   %-15s   %-15s \n", name, area, category);
 			}
 			System.out.println("");
 			
@@ -39,23 +40,26 @@ public class View extends Conn{
 	}
 	
 	public void Menu(String restaurant) {
-		JdbcConn();
 		
 		PreparedStatement pstmt = null;
 
 		System.out.println("\n메뉴 목록");
 		
 		try {
-			String sql = "select * from menu where name=?";
+			String sql = "SELECT * FROM menu "
+					+ "WHERE restaurant=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, restaurant);
-			ResultSet rs = pstmt.executeQuery(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			System.out.printf("  %-5s   %-30s   %-10s \n", "id", "name", "price");
+			System.out.printf(" --------------------------------------------------- \n");
 			
 			while(rs.next()) {
+				int id = rs.getShort("id");
 				String name = rs.getString("name");
-				String description = rs.getString("description");
 				int price = rs.getInt("price");
-				System.out.println("name: " + name + " description: " + description + " price: " + price);
+				System.out.printf("  %-5s   %-30s   %-10s \n", id, name, price);
 			}
 			System.out.println("");
 			
@@ -64,29 +68,57 @@ public class View extends Conn{
 		}
 	}
 	
-	public void Review(String userid) {
-		JdbcConn();
+	public void Review(String user_id) {
 		
 		PreparedStatement pstmt = null;
 
 		System.out.println("\n리뷰 목록");
 		
 		try {
-			String sql = "select * from review where userid=?";
+			String sql = "SELECT * FROM review "
+					+ "WHERE user_id=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userid);
-			ResultSet rs = pstmt.executeQuery(sql);
+			pstmt.setString(1, user_id);
+			ResultSet rs = pstmt.executeQuery();
+			
+			System.out.printf("  %-5s   %-15s   %-30s   %-15s   %-30s \n", "id", "restaurant", "menu", "rate", "comment");
+			System.out.printf(" -------------------------------------------------------------------------------------------------------- \n");
 			
 			while(rs.next()) {
+				int id = rs.getShort("id");
 				String restaurant = rs.getString("restaurant");
 				String menu = rs.getString("menu");
-				int rate = rs.getInt("rate");
+				float rate = rs.getFloat("rate");
 				String comment = rs.getString("comment");
-				int price = rs.getInt("price");
-				System.out.println("restaurant: " + restaurant + " menu: " + menu + " rate: " + rate + " comment: " + comment + " price: " + price);
+				System.out.printf("  %-5s   %-15s   %-30s   %-15s   %-30s \n", id, restaurant, menu, rate, comment);
 			}
 			System.out.println("");
 
+		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+		} 
+	}
+	
+	public void Area() {
+		
+		PreparedStatement pstmt = null;
+		
+		System.out.println("\n리뷰 목록");
+		
+		try {
+			String sql = "SELECT DISTINCT area FROM restaurant ";
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			System.out.printf("  %-15s \n", "area");
+			System.out.printf(" ---------------- \n");
+			
+			while(rs.next()) {
+				String area = rs.getString("area");
+				System.out.printf("  %-15s \n", area);
+			}
+			System.out.println("");
+			
 		} catch(SQLException e) {
 			System.out.println(e.getMessage());
 		} 

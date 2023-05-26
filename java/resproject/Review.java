@@ -6,29 +6,22 @@ import java.sql.SQLException;
 
 public class Review extends Conn{
 	
-	String restaurant;
-	String menu;
-	int rate;
-	String comment;
-	int rev_id;
-	
 	public Review() {
-		
+		JdbcConn();
 	}
 	
-	public int Create(String userid, String restaurant, String menu, int rate, String comment) {
-		JdbcConn();
+	public int Create(String user_id, String restaurant, String menu, String comment, double rate) {
 		
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "insert into review values (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO review (user_id, restaurant, menu, comment, rate) VALUES (?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userid);
+			pstmt.setString(1, user_id);
 			pstmt.setString(2, restaurant);
 			pstmt.setString(3, menu);
-			pstmt.setInt(4, rate);
-			pstmt.setString(5, comment);
+			pstmt.setString(4, comment);
+			pstmt.setDouble(5, rate);
 			
 			return pstmt.executeUpdate();
 			
@@ -39,17 +32,14 @@ public class Review extends Conn{
 		return -1;
 	}
 	
-	public int Drop(String userid, String restaurant, String menu) {
-		JdbcConn();
+	public int Drop(int id) {
 		
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "delete from review where userid=?, restaurant=?, menu=?";
+			String sql = "DELETE FROM review WHERE id=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userid);
-			pstmt.setString(2, restaurant);
-			pstmt.setString(3, menu);
+			pstmt.setInt(1, id);
 			
 			return pstmt.executeUpdate();
 			
@@ -60,19 +50,18 @@ public class Review extends Conn{
 		return -1;
 	}
 	
-	public int Update(String userid, String restaurant, String menu, int rate, String comment) {
-		JdbcConn();
+	public int Update(String user_id, int id, double rate, String comment) {
 		
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "update review where userid=?, restaurant=?, menu=? set rate=?, comment=?";
+			String sql = "UPDATE review SET rate=?, comment=? "
+					+ "WHERE user_id=? AND id=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userid);
-			pstmt.setString(2, restaurant);
-			pstmt.setString(3, menu);
-			pstmt.setInt(4, rate);
-			pstmt.setString(5, comment);
+			pstmt.setDouble(1, rate);
+			pstmt.setString(2, comment);
+			pstmt.setString(3, user_id);
+			pstmt.setInt(4, id);
 			
 			return pstmt.executeUpdate();
 			
