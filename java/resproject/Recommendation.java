@@ -31,7 +31,7 @@ public class Recommendation extends Conn {
 			sstmt = conn.prepareStatement(sql);
 			ResultSet rs = sstmt.executeQuery();
 			
-			System.out.println("ÆòÁ¡ÀÌ " + rate + " ÀÌ»óÀÎ ½Ä´çÀº ´ÙÀ½°ú °°½À´Ï´Ù.\n");
+			System.out.println("í‰ì ì´ " + rate + " ì´ìƒì¸ ì‹ë‹¹ì€ ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.\n");
 			
 			System.out.printf("  %-15s   %-15s   %-15s   %-5s \n", "restaurant", "area", "category", "average rate");
 			System.out.printf(" --------------------------------------------------------------------- \n");
@@ -74,7 +74,7 @@ public class Recommendation extends Conn {
 			sstmt = conn.prepareStatement(sql);
 			ResultSet rs = sstmt.executeQuery();
 			
-			System.out.println("°¡°İÀÌ " + maxPrice + " ÀÌÇÏÀÎ ½Ä´çÀº ´ÙÀ½°ú °°½À´Ï´Ù.");
+			System.out.println("ê°€ê²©ì´ " + maxPrice + " ì´í•˜ì¸ ì‹ë‹¹ì€ ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.");
 			
 			System.out.printf("  %-15s   %-30s   %-10s   %-5s \n", "restaurant", "menu", "price", "rate");
 			System.out.printf(" --------------------------------------------------------------------- \n");
@@ -102,12 +102,12 @@ public class Recommendation extends Conn {
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "SELECT * FROM restaurant WHERE area = ?";
+			String sql = "SELECT area, COUNT(*) AS count_of_restaurants FROM restaurant WHERE area = ? GROUP BY area";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, area);
 			ResultSet rs = pstmt.executeQuery();
 			
-			System.out.println("±¸¿ªÀÌ " + area + "ÀÎ ½Ä´çÀº ´ÙÀ½°ú °°½À´Ï´Ù.");
+			System.out.println("êµ¬ì—­ì´ " + area + "ì¸ ì‹ë‹¹ì€ ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.");
 			
 			System.out.printf("  %-15s   %-15s \n", "name", "category");
 			System.out.printf(" ------------------------------------------ \n");
