@@ -74,7 +74,7 @@ public class Recommendation extends Conn {
 			sstmt = conn.prepareStatement(sql);
 			ResultSet rs = sstmt.executeQuery();
 			
-			System.out.println("가격이 " + maxPrice + " 이상인 식당은 다음과 같습니다.");
+			System.out.println("가격이 " + maxPrice + " 이하인 식당은 다음과 같습니다.");
 			
 			System.out.printf("  %-15s   %-30s   %-10s   %-5s \n", "restaurant", "menu", "price", "rate");
 			System.out.printf(" --------------------------------------------------------------------- \n");
