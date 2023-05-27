@@ -7,9 +7,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		System.out.print("¹İ°©½À´Ï´Ù. ÀÌÈ­¿©´ë ±Ù¹æ ¸ÀÁı Á¶È¸ ¼­ºñ½ºÀÔ´Ï´Ù.\n");
+		System.out.print("ë°˜ê°‘ìŠµë‹ˆë‹¤. ì´í™”ì—¬ëŒ€ ê·¼ë°© ë§›ì§‘ ì¡°íšŒ ì„œë¹„ìŠ¤ì…ë‹ˆë‹¤.\n");
 		login();
-		System.out.print("°¨»çÇÕ´Ï´Ù. ÀÌÈ­¿©´ë ±Ù¹æ ¸ÀÁı Á¶È¸ ¼­ºñ½ºÀÔ´Ï´Ù.");
+		System.out.print("ê°ì‚¬í•©ë‹ˆë‹¤. ì´í™”ì—¬ëŒ€ ê·¼ë°© ë§›ì§‘ ì¡°íšŒ ì„œë¹„ìŠ¤ì…ë‹ˆë‹¤.");
 		return;
 		
 	}
@@ -23,76 +23,76 @@ public class Main {
 		while(loop) {
 			
 			try {
-				System.out.println("\n¼­ºñ½º ÀÌ¿ëÀ» À§ÇØ ·Î±×ÀÎ ÇØÁÖ¼¼¿ä.");	
-				System.out.printf("%-10s  %-10s  %-10s \n", "1. ·Î±×ÀÎ", "2. È¸¿ø°¡ÀÔ", "3. Á¾·á");
-				System.out.print("¹øÈ£ ¼±ÅÃ : ");
+				System.out.println("\nì„œë¹„ìŠ¤ ì´ìš©ì„ ìœ„í•´ ë¡œê·¸ì¸ í•´ì£¼ì„¸ìš”.");	
+				System.out.printf("%-10s  %-10s  %-10s \n", "1. ë¡œê·¸ì¸", "2. íšŒì›ê°€ì…", "3. ì¢…ë£Œ");
+				System.out.print("ë²ˆí˜¸ ì„ íƒ : ");
 				code = scanner.nextInt();
 				scanner.nextLine();
 				
 				if(code == 1) {
 					
-					System.out.print("\n·Î±×ÀÎÇÒ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+					System.out.print("\në¡œê·¸ì¸í•  ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 					String id = scanner.nextLine();
 					
-					System.out.print("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+					System.out.print("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 					String pw = scanner.nextLine();
 					
-					// users db¿¡¼­ id, password °Ë»ç
+					// users dbì—ì„œ id, password ê²€ì‚¬
 					Account account = new Account();
 					int result = account.Login(id, pw);
 					
 					if(result == 1) {
-						System.out.println("\n·Î±×ÀÎÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");	
+						System.out.println("\në¡œê·¸ì¸ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");	
 						menu(id, pw);
 					}
 					
 					else if(result == 0) {
-						System.out.println("\nºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+						System.out.println("\në¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 					}
 					
 					else if(result == -1) {
-						System.out.println("\n¾ÆÀÌµğ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+						System.out.println("\nì•„ì´ë””ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 					}
 					
 					else if(result == -2) {
-						System.out.println("\n¿À·ù°¡ ¹ß»ıÇÏ¿© ·Î±×ÀÎ¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+						System.out.println("\nì˜¤ë¥˜ê°€ ë°œìƒí•˜ì—¬ ë¡œê·¸ì¸ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 					}
 					
 				} else if (code == 2) {
 					
-					System.out.print("\n°¡ÀÔÇÒ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+					System.out.print("\nê°€ì…í•  ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 					String id = scanner.nextLine();
 					
-					System.out.print("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+					System.out.print("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 					String pw = scanner.nextLine();
 					
-					// users db¿¡ id, password ÀÔ·Â
+					// users dbì— id, password ì…ë ¥
 					Account account = new Account();
 					int result = account.Create(id, pw);
 					
 					if (result == 1) {
-						System.out.println("\n°èÁ¤ÀÌ »ı¼ºµÇ¾ú½À´Ï´Ù.");
+						System.out.println("\nê³„ì •ì´ ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤.");
 					} else if (result == -1) {
-						System.out.println("\nÀÌ¹Ì ¾ÆÀÌµğ°¡ Á¸ÀçÇÕ´Ï´Ù.");
+						System.out.println("\nì´ë¯¸ ì•„ì´ë””ê°€ ì¡´ì¬í•©ë‹ˆë‹¤.");
 					} else {
-						System.out.println("\n¿À·ù°¡ ¹ß»ıÇÏ¿© °èÁ¤ »ı¼º¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+						System.out.println("\nì˜¤ë¥˜ê°€ ë°œìƒí•˜ì—¬ ê³„ì • ìƒì„±ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 					}				
 					
 				} else if (code == 3) {
 					
-					System.out.println("\n¼­ºñ½º¸¦ Á¾·áÇÕ´Ï´Ù.\n");
+					System.out.println("\nì„œë¹„ìŠ¤ë¥¼ ì¢…ë£Œí•©ë‹ˆë‹¤.\n");
 					loop = false;
 					
 				} else {
 					
-					System.out.println("\n¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù.");
-					System.out.println("¹øÈ£¸¦ È®ÀÎÇÏ½Ã°í ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					System.out.println("\nì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.");
+					System.out.println("ë²ˆí˜¸ë¥¼ í™•ì¸í•˜ì‹œê³  ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 					
 				}
 				
 			} catch(InputMismatchException e) {
-				System.out.println("\n¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù.");
-				System.out.println("1ºÎÅÍ 5 »çÀÌ ½Ç¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				System.out.println("\nì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.");
+				System.out.println("1ë¶€í„° 5 ì‚¬ì´ ì‹¤ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				scanner.next();
 				continue;
 			}
@@ -108,148 +108,148 @@ public class Main {
 		while(loop) {
 			
 			try {
-				System.out.println("\n¸Ş´º¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä.");
-				System.out.printf("%-10s  %-10s  %-10s  %-15s  %-15s  %-15s  %-10s \n", "1. ¸®ºä µî·Ï", "2. ¸®ºä »èÁ¦", "3. ¸®ºä ¼öÁ¤", "4. ÀÔ·Â ÆòÁ¡ ÀÌ»ó ½Ä´ç ÃßÃµ", "5. ÀÔ·Â °¡°İ ÀÌÇÏ ½Ä´ç ÃßÃµ", "6. ÀÔ·Â ±¸¿ª ½Ä´ç ÃßÃµ", "7. ·Î±×¾Æ¿ô");
-				System.out.print("¹øÈ£ ¼±ÅÃ : ");
+				System.out.println("\në©”ë‰´ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.");
+				System.out.printf("%-10s  %-10s  %-10s  %-15s  %-15s  %-15s  %-10s \n", "1. ë¦¬ë·° ë“±ë¡", "2. ë¦¬ë·° ì‚­ì œ", "3. ë¦¬ë·° ìˆ˜ì •", "4. ì…ë ¥ í‰ì  ì´ìƒ ì‹ë‹¹ ì¶”ì²œ", "5. ì…ë ¥ ê°€ê²© ì´í•˜ ì‹ë‹¹ ì¶”ì²œ", "6. ì…ë ¥ êµ¬ì—­ ì‹ë‹¹ ì¶”ì²œ", "7. ë¡œê·¸ì•„ì›ƒ");
+				System.out.print("ë²ˆí˜¸ ì„ íƒ : ");
 				code = scanner.nextInt();
 				
 				if (code == 1) {
 					
-					// ½Ä´ç ¸®½ºÆ® º¸¿©ÁÖ±â
+					// ì‹ë‹¹ ë¦¬ìŠ¤íŠ¸ ë³´ì—¬ì£¼ê¸°
 					View view = new View();
 					view.Restaurant();
 					scanner.nextLine();
-					System.out.print("ÀÔ·ÂÇÒ ¸®ºäÀÇ ½Ä´ç ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+					System.out.print("ì…ë ¥í•  ë¦¬ë·°ì˜ ì‹ë‹¹ ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 					String restaurant = scanner.nextLine();
 
-					// ¸Ş´º ¸®½ºÆ® º¸¿©ÁÖ±â
+					// ë©”ë‰´ ë¦¬ìŠ¤íŠ¸ ë³´ì—¬ì£¼ê¸°
 					view.Menu(restaurant);
-					System.out.print("ÀÔ·ÂÇÒ ¸®ºäÀÇ ¸Ş´º ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+					System.out.print("ì…ë ¥í•  ë¦¬ë·°ì˜ ë©”ë‰´ ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 					String menu = scanner.nextLine();
 								
-					System.out.print("Á¡¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. (1~5 »çÀÌ ½Ç¼ö) : ");
+					System.out.print("ì ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. (1~5 ì‚¬ì´ ì‹¤ìˆ˜) : ");
 					double rate = scanner.nextDouble();
 					scanner.nextLine();
 					
-					System.out.print("ÀÔ·ÂÇÒ ¸®ºäÀÇ ÄÚ¸àÆ®¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+					System.out.print("ì…ë ¥í•  ë¦¬ë·°ì˜ ì½”ë©˜íŠ¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 					String comment = scanner.nextLine();
 								
-					// review¿¡ res_name, menu_name, rate, comment ÀÔ·Â
+					// reviewì— res_name, menu_name, rate, comment ì…ë ¥
 					Review review = new Review();
 					int result = review.Create(id, restaurant, menu, comment, rate);
 					
 					if (result == 1) {
-						System.out.println("\n¸®ºä°¡ ÀÔ·ÂµÇ¾ú½À´Ï´Ù.");
+						System.out.println("\në¦¬ë·°ê°€ ì…ë ¥ë˜ì—ˆìŠµë‹ˆë‹¤.");
 					} else {
-						System.out.println("\n¿À·ù°¡ ¹ß»ıÇÏ¿© ¸®ºä ÀÔ·Â¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+						System.out.println("\nì˜¤ë¥˜ê°€ ë°œìƒí•˜ì—¬ ë¦¬ë·° ì…ë ¥ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 					}
 					
 				} else if (code == 2) {
 					
-					// ÇØ´ç idÀÇ ¸®ºä ¸®½ºÆ® º¸¿©ÁÖ±â
+					// í•´ë‹¹ idì˜ ë¦¬ë·° ë¦¬ìŠ¤íŠ¸ ë³´ì—¬ì£¼ê¸°
 					View view = new View();
 					view.Review(id);
 					scanner.nextLine();
-					System.out.print("»èÁ¦ÇÒ ¸®ºäÀÇ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+					System.out.print("ì‚­ì œí•  ë¦¬ë·°ì˜ ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 					int rev_id = scanner.nextInt();
 					
-					// reviewÀÇ id, res_name, menu_nameÀ» ÅëÇØ »èÁ¦
+					// reviewì˜ id, res_name, menu_nameì„ í†µí•´ ì‚­ì œ
 					Review review = new Review();
 					int result = review.Drop(rev_id);
 					
 					if (result == 1) {
-						System.out.println("\n¸®ºä°¡ »èÁ¦µÇ¾ú½À´Ï´Ù.");
+						System.out.println("\në¦¬ë·°ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
 					} else {
-						System.out.println("¿À·ù°¡ ¹ß»ıÇÏ¿© ¸®ºä »èÁ¦¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+						System.out.println("ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì—¬ ë¦¬ë·° ì‚­ì œì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 					}
 					
 				} else if (code == 3) {
 					
-					// ÇØ´ç idÀÇ ¸®ºä ¸®½ºÆ® º¸¿©ÁÖ±â
+					// í•´ë‹¹ idì˜ ë¦¬ë·° ë¦¬ìŠ¤íŠ¸ ë³´ì—¬ì£¼ê¸°
 					View view = new View();
 					view.Review(id);
 					scanner.nextLine();
-					System.out.print("¼öÁ¤ÇÒ ¸®ºäÀÇ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+					System.out.print("ìˆ˜ì •í•  ë¦¬ë·°ì˜ ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 					int rev_id = scanner.nextInt();
 					
-					System.out.print("Á¡¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. (1~5 ½Ç¼ö) : ");
+					System.out.print("ì ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. (1~5 ì‹¤ìˆ˜) : ");
 					double rate = scanner.nextDouble();
 					scanner.nextLine();
 					
-					System.out.print("ÀÔ·ÂÇÒ ¸®ºäÀÇ ÄÚ¸àÆ®¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+					System.out.print("ì…ë ¥í•  ë¦¬ë·°ì˜ ì½”ë©˜íŠ¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 					String comment = scanner.nextLine();
 					
-					// review¿¡ rate, comment ÀÔ·Â
+					// reviewì— rate, comment ì…ë ¥
 					Review review = new Review();
 					int result = review.Update(id, rev_id, rate, comment);
 					
 					if (result == 1) {
-						System.out.println("\n¸®ºä°¡ ¼öÁ¤µÇ¾ú½À´Ï´Ù.");
+						System.out.println("\në¦¬ë·°ê°€ ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.");
 					} else {
-						System.out.println("\n¿À·ù°¡ ¹ß»ıÇÏ¿© ¸®ºä ¼öÁ¤¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+						System.out.println("\nì˜¤ë¥˜ê°€ ë°œìƒí•˜ì—¬ ë¦¬ë·° ìˆ˜ì •ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 					}
 					
 				} else if (code == 4) {
 					
-					System.out.println("\nÀÔ·ÂÇÑ ÆòÁ¡ ÀÌ»óÀÇ ½Ä´çÀ» ÃßÃµÇÕ´Ï´Ù.");
+					System.out.println("\nì…ë ¥í•œ í‰ì  ì´ìƒì˜ ì‹ë‹¹ì„ ì¶”ì²œí•©ë‹ˆë‹¤.");
 					
-					System.out.print("ÆòÁ¡À» ÀÔ·ÂÇØÁÖ¼¼¿ä. (1~5 ½Ç¼ö) : ");
+					System.out.print("í‰ì ì„ ì…ë ¥í•´ì£¼ì„¸ìš”. (1~5 ì‹¤ìˆ˜) : ");
 					double rate = scanner.nextDouble();
 					
 					Recommendation recommendation = new Recommendation();
 					int result = recommendation.ByRate(rate);
 					
 					if (result == 1) {
-						System.out.println("\n½Ä´çÀÌ ÃßÃµµÇ¾ú½À´Ï´Ù.");
+						System.out.println("\nì‹ë‹¹ì´ ì¶”ì²œë˜ì—ˆìŠµë‹ˆë‹¤.");
 					} else {
-						System.out.println("\n¿À·ù°¡ ¹ß»ıÇÏ¿© ½Ä´ç ÃßÃµ¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+						System.out.println("\nì˜¤ë¥˜ê°€ ë°œìƒí•˜ì—¬ ì‹ë‹¹ ì¶”ì²œì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 					}
 					
 				} else if (code == 5) {
 					
-					System.out.println("\nÀÔ·ÂÇÑ °¡°İ ÀÌÇÏÀÇ ½Ä´çÀ» ÃßÃµÇÕ´Ï´Ù.");
+					System.out.println("\nì…ë ¥í•œ ê°€ê²© ì´í•˜ì˜ ì‹ë‹¹ì„ ì¶”ì²œí•©ë‹ˆë‹¤.");
 					
-					System.out.print("°¡°İÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+					System.out.print("ê°€ê²©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 					int price = scanner.nextInt();
 					
 					Recommendation recommendation = new Recommendation();
 					int result = recommendation.ByPrice(price);
 					
 					if (result == 1) {
-						System.out.println("\n½Ä´çÀÌ ÃßÃµµÇ¾ú½À´Ï´Ù.");
+						System.out.println("\nì‹ë‹¹ì´ ì¶”ì²œë˜ì—ˆìŠµë‹ˆë‹¤.");
 					} else {
-						System.out.println("\n¿À·ù°¡ ¹ß»ıÇÏ¿© ½Ä´ç ÃßÃµ¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+						System.out.println("\nì˜¤ë¥˜ê°€ ë°œìƒí•˜ì—¬ ì‹ë‹¹ ì¶”ì²œì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 					}
 					
 				} else if (code == 6) {
 					
-					System.out.println("\nÀÔ·ÂÇÑ ±¸¿ªÀÇ ½Ä´çÀ» ÃßÃµÇÕ´Ï´Ù.\n");
+					System.out.println("\nì…ë ¥í•œ êµ¬ì—­ì˜ ì‹ë‹¹ì„ ì¶”ì²œí•©ë‹ˆë‹¤.\n");
 					View view = new View();
 					view.Area();
 					scanner.nextLine();
-					System.out.print("±¸¿ªÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+					System.out.print("\nêµ¬ì—­ì„ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 					String area = scanner.nextLine();
 					
 					Recommendation recommendation = new Recommendation();
 					int result = recommendation.ByArea(area);
 					
 					if (result == 1) {
-						System.out.println("\n½Ä´çÀÌ ÃßÃµµÇ¾ú½À´Ï´Ù.");
+						System.out.println("\nì‹ë‹¹ì´ ì¶”ì²œë˜ì—ˆìŠµë‹ˆë‹¤.");
 					} else {
-						System.out.println("\n¿À·ù°¡ ¹ß»ıÇÏ¿© ½Ä´ç ÃßÃµ¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+						System.out.println("\nì˜¤ë¥˜ê°€ ë°œìƒí•˜ì—¬ ì‹ë‹¹ ì¶”ì²œì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 					}
 					
 				} else if (code == 7) {
-					System.out.println("\n·Î±×¾Æ¿ô µÇ¾ú½À´Ï´Ù.\n");
+					System.out.println("\në¡œê·¸ì•„ì›ƒ ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
 					loop = false;
 					
 				} else {
-					System.out.println("\n¹øÈ£¸¦ È®ÀÎÇÏ½Ã°í ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					System.out.println("\në²ˆí˜¸ë¥¼ í™•ì¸í•˜ì‹œê³  ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				}
 				
 			} catch(InputMismatchException e) {
-				System.out.println("\n¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù.");
-				System.out.println("1ºÎÅÍ 5 »çÀÌ ½Ç¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				System.out.println("\nì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.");
+				System.out.println("1ë¶€í„° 5 ì‚¬ì´ ì‹¤ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				scanner.next();
 				code = -1;
 			}
