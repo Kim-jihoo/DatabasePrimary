@@ -28,3 +28,8 @@ CREATE TABLE review (
   FOREIGN KEY (restaurant) REFERENCES restaurant(name),
   FOREIGN KEY (menu) REFERENCES menu(name)
 );
+
+CREATE INDEX idx_comment ON review (comment);
+CREATE INDEX idx_restaurant ON restaurant (name);
+CREATE INDEX idx_menu ON menu (name);
+CREATE INDEX idx_users ON users (id);
