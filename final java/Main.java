@@ -160,7 +160,7 @@ public class Main {
 					if (result == 1) {
 						System.out.println("\n리뷰가 삭제되었습니다.");
 					} else {
-						System.out.println("오류가 발생하여 리뷰 삭제에 실패했습니다.");
+						System.out.println("\n오류가 발생하여 리뷰 삭제에 실패했습니다.");
 					}
 					
 				} else if (code == 3) {
