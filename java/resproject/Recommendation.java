@@ -96,6 +96,33 @@ public class Recommendation extends Conn {
 		}
 		return -1;
 	}
+	
+    public void showArea(String area) {
+    PreparedStatement pstmt = null;
+    
+    try {
+        String sql = "SELECT name, area, category, COUNT(*) AS count_of_restaurants FROM restaurant WHERE area = ? GROUP BY name, area, category";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, area);
+        ResultSet rs = pstmt.executeQuery();
+        
+        System.out.println("Restaurants in the area: " + area);
+        System.out.printf("%-15s %-15s %-15s %-10s\n", "Name", "Area", "Category", "Count");
+        System.out.println("----------------------------------------------");
+        
+        while (rs.next()) {
+            String name = rs.getString("name");
+            String areaResult = rs.getString("area");
+            String category = rs.getString("category");
+            int count = rs.getInt("count_of_restaurants");
+            
+            System.out.printf("%-15s %-15s %-15s %-10d\n", name, areaResult, category, count);
+        }
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
+    }
+}
+
 
 	public int ByArea(String area) {
 		
