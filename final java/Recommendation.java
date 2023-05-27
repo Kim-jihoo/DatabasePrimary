@@ -41,7 +41,7 @@ public class Recommendation extends Conn {
                 String area = rs.getString("area");
                 String category = rs.getString("category");
                 double average_rate = rs.getDouble("average_rate"); 
-                System.out.printf("  %-15s   %-15s   %-15s   %-5s \n", name, area, category, average_rate);
+                System.out.printf("  %-15s   %-15s   %-15s   %-5.2f \n", name, area, category, average_rate);
 			}
 			String drop = "DROP VIEW restaurant_ratings";
 			pstmt = conn.prepareStatement(drop);
