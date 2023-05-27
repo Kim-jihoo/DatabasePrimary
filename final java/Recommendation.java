@@ -65,7 +65,7 @@ public class Recommendation extends Conn {
                     "SELECT m.restaurant, m.name AS menu, m.price, r.rate " +
                     "FROM menu m " +
                     "JOIN review r ON m.restaurant = r.restaurant AND m.name = r.menu " +
-                    "WHERE m.price < ?";
+                    "WHERE m.price <= ?";
 			vstmt = conn.prepareStatement(view);
 			vstmt.setDouble(1, maxPrice);
 			vstmt.executeUpdate();
