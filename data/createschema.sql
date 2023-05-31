@@ -1,3 +1,6 @@
+create database resdb;
+use resdb;
+
 CREATE TABLE users (
   id VARCHAR(255) PRIMARY KEY,
   pw VARCHAR(255)
